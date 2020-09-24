@@ -1,0 +1,42 @@
+
+.container{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+/* 注册和登录表单的样式 */
+.form-wrapper{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 600px;
+    transition: .3s ease all;
+}
+.form-wrapper form{
+    width: 300px;
+}
+.logo{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo img{
+    width: 300px;
+}
+/* 长按钮 */
+.long{
+    width: 100%;
+}
+.space-between{
+    display: flex;
+    justify-content: space-between;
+}
+.error-message{
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.hidden{
+    display: none;
+}

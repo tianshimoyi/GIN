@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/login-registe.css">
+    <script>
+        window.onload=function () {
+            var vc=document.getElementById("vcode");
+            var p=document.getElementById("p1");
+            var butt=document.getElementById("b1");
+            var p2=document.getElementById("p2")
+            console.log(p1.innerHTML);
+            if (p2.innerHTML=="500"){
+                alert("登录失败！");
+            }
+            b1.onclick=function () {
+                if(p1.innerText.toUpperCase()==vc.value.toUpperCase()){
+                    b1.type="submit";
+                }else {
+                    alert("验证码输入错误！");
+                }
+            }
+        }
+    </script>
+    <style>
+        body{
+            background-image: url("/static/img/usimg.jpg");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        .form-wrapper{
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+{{/*<h3 style="text-align: center;font-size:25px;color: red" id="h3" hidden="hidden">{{.}}</h3>*/}}
+     {{/* <div class="logo">
+        <img src="/static/img/薇尔莉特.jpg" alt="">
+        </div>*/}}
+        <p hidden id="p2">{{.value}}</p>
+        <div class="form-wrapper">
+            <form action="/login" method="post" id="login-form">
+                <!-- 此处添加前后端通信中的错误信息 去除hidden类使其显示 -->
+                <div class="form-group">
+                  <label for="exampleInputEmail1">用户名</label>
+                  <input type="text" name="GAName" class="form-control" id="uname" placeholder="请输入用户名" aria-describedby="unameError">
+                  <span id="unameError" class="help-block hidden"></span>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">密码</label>
+                  <input type="password" name="GAPassword" class="form-control" id="password" placeholder="Password" aria-describedby="passwordError">
+                  <span id="passwordError" class="help-block hidden"></span>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputFile">选择身份</label>
+                    <select class="form-control" name="isAd" id="identity" aria-describedby="identityError">
+                        <option value="1">用户</option>
+                        <option value="2">管理员</option>
+                    </select>
+                    <span id="identityError" class="help-block hidden"></span>
+                  </div>
+                <div class="form-group">
+                    <label for="exampleInputFile">请输入验证码</label>
+                    <input type="text" name="VCode" class="form-control" id="vcode"  placeholder="Verification Code" aria-describedby="passwordError">
+                    <span id="passwordError" class="help-block hidden"></span>
+                </div>
+                <div class="form-group" style="background-color: aqua;font-size: 20px;text-align: center">
+                    <p class="text-uppercase" ><em id="p1">{{.str}}</em></p>
+                </div>
+                <a href="/login">点击刷新</a>
+
+                <div class="checkbox space-between">
+                  <span>没有账号？去<a href="/registe">注册</a></span>
+                </div>
+                <button type="button" class="btn btn-primary long" id="b1">登录</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

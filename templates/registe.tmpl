@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/login-registe.css" type="text/css">
+    <script src="/static/js/registe.js"></script>
+    <style type="text/css">
+        .img1{
+            width: 50px;
+            height: 50px;
+        }
+       body{
+           background-image: url("https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1268706041,2010266731&fm=15&gp=0.jpg");
+           background-position: center center;
+           background-repeat: no-repeat;
+           background-attachment: fixed;
+           background-size: cover;
+       }
+        label{
+            color: deepskyblue;
+        }
+        .container{
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-wrapper">
+            {{if .isUpdate}}
+                <form action="/public/upDateRegiste" method="post" enctype="multipart/form-data" id="registe-form">
+                    <input type="text" value="{{.user.ID}}" name="id" hidden>
+                    <!-- 此处添加前后端通信中的错误信息 去除hidden类使其显示 -->
+                    <p class="error-message bg-danger hidden" id="error-message"></p>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">用户名</label>
+                        <input type="text" name="GAName" value="{{.user.Name}}" class="form-control" id="uname" placeholder="请输入用户名" aria-describedby="unameError">
+                        <span id="unameError" class="help-block hidden"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">密码</label>
+                        <input type="text" value="{{.user.Password}}" name="GAPassword" class="form-control" id="password" placeholder="Password" aria-describedby="passwordError">
+                        <span id="passwordError" class="help-block hidden"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">身份证</label>
+                        <input type="text" value="{{.user.IDNum}}" name="GAIDNum" class="form-control" id="password" placeholder="请输入身份证" aria-describedby="passwordError">
+                        <span id="passwordError" class="help-block hidden"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">手机号</label>
+                        <input type="tel" value="{{.user.Tel}}" name="GATel" class="form-control" id="password" placeholder="请输入手机号" aria-describedby="passwordError">
+                        <span id="passwordError" class="help-block hidden"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputFile">上传头像</label>
+                        <input type="file" name="img" id="fielImg" accept=".jpg, .png, .jpeg" aria-describedby="fileError">
+                            <img src="{{.user.Img}}" alt="" class="img1">
+                        <span id="fileError" class="help-block hidden"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputFile">性别</label>
+                        <select class="form-control" name="GAGender" id="identity" aria-describedby="identityError">
+                            <option value="{{.user.Gender}}">{{.user.Gender}}</option>
+                            <option value="男">男</option>
+                            <option value="女">女</option>
+                        </select>
+                        <span id="identityError" class="help-block hidden"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary long" >提交</button>
+                </form>
+            {{else}}
+            <form action="/registe" method="post" enctype="multipart/form-data" id="registe-form">
+                <!-- 此处添加前后端通信中的错误信息 去除hidden类使其显示 -->
+                <p class="error-message bg-danger hidden" id="error-message"></p>
+                <input type="text" value="{{.isAdmain}}" name="isAdmain" hidden>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">用户名</label>
+                  <input type="text" name="GAName" class="form-control" id="uname" placeholder="请输入用户名" aria-describedby="unameError">
+                  <span id="unameError" class="help-block hidden"></span>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">密码</label>
+                  <input type="password" name="GAPassword" class="form-control" id="password" placeholder="Password" aria-describedby="passwordError">
+                  <span id="passwordError" class="help-block hidden"></span>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">身份证</label>
+                    <input type="text" name="GAIDNum" class="form-control" id="password" placeholder="请输入身份证" aria-describedby="passwordError">
+                    <span id="passwordError" class="help-block hidden"></span>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">手机号</label>
+                    <input type="tel" name="GATel" class="form-control" id="password" placeholder="请输入手机号" aria-describedby="passwordError">
+                    <span id="passwordError" class="help-block hidden"></span>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputFile">上传头像</label>
+                  <input type="file" name="img" id="fielImg" accept=".jpg, .png, .jpeg" aria-describedby="fileError">
+                  <span id="fileError" class="help-block hidden"></span>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputFile">性别</label>
+                    <select class="form-control" name="GAGender" id="identity" aria-describedby="identityError">
+                        <option value="男">男</option>
+                        <option value="女">女</option>
+                    </select>
+                    <span id="identityError" class="help-block hidden"></span>
+                  </div>
+               
+                <div class="checkbox space-between">
+                  <span style="color: deepskyblue">已有账号？去<a href="/login" style="color: burlywood">登录</a></span>
+                </div>
+                <button type="submit" class="btn btn-primary long" >注册</button>
+            </form>
+            {{end}}
+        </div>
+    </div>
+</body>
+</html>

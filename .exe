@@ -1,0 +1,38 @@
+连接成功
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] HEAD   /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] Loaded HTML Templates (8): 
+	- ShowAddCG.tmpl
+	- addComm.tmpl
+	- login.tmpl
+	- main.tmpl
+	- registe.tmpl
+	- 
+	- CateGory.tmpl
+	- CommodityInformation.tmpl
+
+[GIN-debug] GET    /main                     --> CommoditySalesSystem/controller.ShowMain (3 handlers)
+[GIN-debug] GET    /login                    --> CommoditySalesSystem/controller.ShowLogin (3 handlers)
+[GIN-debug] POST   /login                    --> CommoditySalesSystem/controller.HandleLogin (3 handlers)
+[GIN-debug] GET    /registe                  --> CommoditySalesSystem/controller.ShowRegist (3 handlers)
+[GIN-debug] POST   /registe                  --> CommoditySalesSystem/controller.HandleRegiste (3 handlers)
+[GIN-debug] GET    /exit                     --> CommoditySalesSystem/controller.Exit (3 handlers)
+[GIN-debug] POST   /searchComm               --> CommoditySalesSystem/controller.SearchCommByName (3 handlers)
+[GIN-debug] POST   /SearchCommByCGName       --> CommoditySalesSystem/controller.SearchCommByCGName (3 handlers)
+[GIN-debug] GET    /Admain/showComInfo       --> CommoditySalesSystem/controller.ShowComInfo (3 handlers)
+[GIN-debug] GET    /Admain/addComm           --> CommoditySalesSystem/controller.ShowAddComm (3 handlers)
+[GIN-debug] POST   /Admain/addComm           --> CommoditySalesSystem/controller.HandleComm (3 handlers)
+[GIN-debug] GET    /Admain/DeleComm          --> CommoditySalesSystem/controller.DeleComm (3 handlers)
+[GIN-debug] POST   /Admain/upDateComm        --> CommoditySalesSystem/controller.UpdateComm (3 handlers)
+[GIN-debug] GET    /Admain/showCG            --> CommoditySalesSystem/controller.ShowCateGory (3 handlers)
+[GIN-debug] GET    /Admain/showAddCG         --> CommoditySalesSystem/controller.ShowAddCG (3 handlers)
+[GIN-debug] POST   /Admain/handleAddCG       --> CommoditySalesSystem/controller.HandleAddCG (3 handlers)
+[GIN-debug] GET    /Admain/delCG             --> CommoditySalesSystem/controller.DeleteCG (3 handlers)
+[GIN-debug] POST   /Admain/handleUpdateCG    --> CommoditySalesSystem/controller.UpdateCG (3 handlers)
+[GIN-debug] Listening and serving HTTP on :8080
